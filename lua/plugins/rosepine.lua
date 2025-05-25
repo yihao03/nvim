@@ -1,7 +1,3 @@
-if true then
-  return {}
-end
-
 function ThemeConfig()
   require("rose-pine").setup({
     variant = "moon", -- auto, main, moon, or dawn
