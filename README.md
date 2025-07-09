@@ -1,4 +1,5 @@
 # 💤 LazyVim
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+- a lightly customized LazyVim configuration just for fun
+
+best used with windows terminal background opacity set to below 50% with acrylic enabled
