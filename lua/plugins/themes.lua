@@ -1,6 +1,15 @@
 return {
-  { "rose-pine/neovim", name = "rose-pine" },
-  { "ellisonleao/gruvbox.nvim" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        styles = {
+          transparency = true,
+        },
+      })
+    end,
+  },
   {
     "catppuccin",
     opts = {
