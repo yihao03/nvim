@@ -78,14 +78,25 @@ function ThemeConfig()
     end,
   })
 
-  vim.cmd("colorscheme rose-pine")
+  -- vim.cmd("colorscheme rose-pine")
   -- vim.cmd("colorscheme rose-pine-main")
   -- vim.cmd("colorscheme rose-pine-moon")
   -- vim.cmd("colorscheme rose-pine-dawn")
 end
 
 return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  config = ThemeConfig,
+  { "rose-pine/neovim", name = "rose-pine", config = ThemeConfig },
+  { "ellisonleao/gruvbox.nvim" },
+  {
+    "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
 }
