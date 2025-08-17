@@ -1,7 +1,6 @@
 return {
   {
     "mfussenegger/nvim-jdtls",
-    dependencies = { "folke/which-key.nvim" },
     opts = function()
       local cmd = { vim.fn.exepath("jdtls") }
       if LazyVim.has("mason.nvim") then
@@ -53,10 +52,18 @@ return {
         test = true,
         settings = {
           java = {
+            home = "/home/yihao/.sdkman/candidates/java/22.0.2-oracle/",
             configuration = {
               runtimes = {
-                name = "JavaSE-22",
-                path = "/home/yihao/.sdkman/candidates/java/22.0.2-oracle/bin/java",
+                {
+                  name = "JavaSE-17",
+                  path = "/home/yihao/.sdkman/candidates/java/17.0.12-oracle/",
+                },
+                {
+                  name = "JavaSE-22",
+                  path = "/home/yihao/.sdkman/candidates/java/22.0.2-oracle/",
+                  default = true,
+                },
               },
             },
             inlayHints = {
