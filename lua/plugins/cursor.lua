@@ -6,7 +6,6 @@ return {
     smear_between_buffers = false,
   },
   specs = {
-    -- disable mini.animate cursor
     {
       "echasnovski/mini.animate",
       optional = true,

@@ -10,16 +10,16 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "3.12.2",
+    version = "4.2.0",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     build = "make tiktoken",
     opts = {
-      model = "o4-mini",
+      model = "gpt-4.1",
       headers = {
         user = " ",
-        assistant = "  Copilot",
+        assistant = " ",
       },
       window = {
         width = 0.3,
