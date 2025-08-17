@@ -16,7 +16,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
-      model = "gpt-4.1",
+      model = "gpt-5",
       headers = {
         user = " ",
         assistant = " ",
