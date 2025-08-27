@@ -16,6 +16,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
+      sticky = "#buffer",
       model = "gpt-5",
       headers = {
         user = " ",
