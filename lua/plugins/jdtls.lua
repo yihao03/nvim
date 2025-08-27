@@ -71,6 +71,15 @@ return {
                 enabled = "all",
               },
             },
+            format = {
+              enabled = true,
+              settings = {
+                url = vim.fn.stdpath("config") .. "/styles/java.xml",
+              },
+            },
+            project = {
+              sourcePaths = { "src/main/java", "src" },
+            },
           },
         },
       }
