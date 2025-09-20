@@ -10,21 +10,24 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "4.2.0",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     build = "make tiktoken",
     opts = {
       sticky = "#buffer",
-      model = "gpt-5",
+      model = "grok-code-fast-1",
+      highlight_headers = false,
       headers = {
-        user = " ",
-        assistant = " ",
+        user = "  ",
+        assistant = "  ",
       },
+      separator = "---",
       window = {
         width = 0.3,
       },
+      -- insert_at_end = true,
+      stop_function_on_failure = true,
     },
     -- See Commands section for default commands if you want to lazy load on them
   },

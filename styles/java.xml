@@ -6,7 +6,7 @@
     <setting id="org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_cases" value="true"/>
 
     <!-- line limit -->
-    <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120"/>
+    <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="80"/>
 
     <!-- comment indentation -->
     <!-- Allow formatter to indent comments (set to true to keep at column 0) -->
@@ -15,6 +15,10 @@
     <!-- Javadoc tag indentation -->
     <setting id="org.eclipse.jdt.core.formatter.comment.indent_root_tags" value="true"/>
     <setting id="org.eclipse.jdt.core.formatter.comment.indent_parameter_description" value="true"/>
+    <setting id="org.eclipse.jdt.core.formatter.comment.indent_description_after_param" value="true"/>
+    <setting id="org.eclipse.jdt.core.formatter.comment.format_javadoc_comments" value="true"/>
+    <setting id="org.eclipse.jdt.core.formatter.comment.format_block_comments" value="true"/>
+    <setting id="org.eclipse.jdt.core.formatter.comment.indent_tag_description" value="true"/>
 
     <!-- indent -->
     <!-- configured in nvim autcmd -->
@@ -25,7 +29,7 @@
     <!-- One indent level = 4 spaces -->
     <setting id="org.eclipse.jdt.core.formatter.indentation.size" value="4"/>
     <!-- Wrapped lines indent = 8 spaces -->
-    <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="8"/>
+    <setting id="org.eclipse.jdt.core.formatter.continuation_indentation" value="4"/>
 
     <!-- new line eof -->
     <setting id="org.eclipse.jdt.core.formatter.insert_new_line_at_end_of_file_if_missing" value="true"/>
