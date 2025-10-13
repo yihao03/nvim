@@ -36,4 +36,5 @@
     <setting id="org.eclipse.jdt.core.formatter.sort_static_imports_separately" value="true"/>
     <setting id="org.eclipse.jdt.core.formatter.imports_static_on_top" value="true"/>
     <setting id="org.eclipse.jdt.core.formatter.insert_new_line_between_import_groups" value="true"/>
+    </profile>
 </profiles>
