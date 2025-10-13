@@ -15,8 +15,8 @@ return {
     },
     build = "make tiktoken",
     opts = {
-      sticky = "#buffer",
-      model = "grok-code-fast-1",
+      sticky = "@copilot",
+      model = "claude-sonnet-4.5",
       highlight_headers = false,
       headers = {
         user = "  ",
