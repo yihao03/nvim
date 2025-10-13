@@ -12,7 +12,6 @@
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.typescript",
-    "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.treesitter-context"
   ],
   "install_version": 8,
