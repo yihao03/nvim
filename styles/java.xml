@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<profiles version="12">
-    <profile kind="CodeFormatterProfile" name="SE-EDU" version="12">
+<profiles version="21">
+    <profile kind="CodeFormatterProfile" name="SE-EDU" version="21">
     <!-- Switch case -->
     <setting id="org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_switch" value="false"/>
     <setting id="org.eclipse.jdt.core.formatter.indent_switchstatements_compare_to_cases" value="true"/>
@@ -10,13 +10,21 @@
     <setting id="org.eclipse.jdt.core.formatter.lineSplit" value="120"/>
     <setting id="org.eclipse.jdt.core.formatter.comment.line_length" value="120"/>
 
+    <!-- Method invocation arguments: don't force one-per-line; wrap only when needed -->
+    <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="16"/>
+    <!-- Keep parentheses on the same line as the method name when wrapping -->
+    <setting id="org.eclipse.jdt.core.formatter.parentheses_positions_in_method_invocation" value="preserve_positions"/>
+
+    <!-- Lambda-specific -->
+    <!-- Keep the arrow on the same line as the lambda parameters -->
+    <setting id="org.eclipse.jdt.core.formatter.wrap_before_lambda_arrow" value="false"/>
+    <!-- Prefer breaking after '->' instead of before the lambda -->
+    <setting id="org.eclipse.jdt.core.formatter.wrap_after_lambda_arrow" value="true"/>
+
     <!-- comment indentation -->
     <!-- Allow formatter to indent comments (set to true to keep at column 0) -->
     <setting id="org.eclipse.jdt.core.formatter.wrap_before_string_concatenation" value="true"/>
     <setting id="org.eclipse.jdt.core.formatter.alignment_for_string_concatenation" value="16"/>
-
-    <!-- indent -->
-    <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="16"/>
 
     <!-- configured in nvim autcmd -->
     <!-- Use spaces, not tabs -->
