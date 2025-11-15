@@ -19,8 +19,8 @@ return {
       model = "grok-code-fast-1",
       highlight_headers = false,
       headers = {
-        user = "  ",
-        assistant = "  ",
+        user = "  ",
+        assistant = "  ",
       },
       separator = "---",
       window = {
