@@ -3,7 +3,7 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
-    event = "InsertEnter", -- Only load when entering insert mode (more efficient)
+    event = "BufReadPost",
     opts = {
       copilot_node_command = "/home/yihao/.nvm/versions/node/v24.4.1/bin/node",
     },
