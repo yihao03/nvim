@@ -17,14 +17,15 @@ return {
           -- This function defines how the root directory is determined.
           -- It should return the path to the project root.
 
-          -- Example 1: Look for a specific file (e.g., pom.xml for Maven)
-          local root = vim.fs.find({ "pom.xml", "build.gradle" }, { upward = true, path = fname })[1]
+          -- Look for Java project markers (Maven, Gradle, or Git)
+          local root = vim.fs.find({ "pom.xml", "build.gradle", ".git" }, { upward = true, path = fname })[1]
           if root then
             return vim.fs.dirname(root)
           end
 
-          -- Example 2: If no specific file is found, use the current file's directory as a fallback
-          return vim.fs.dirname(fname)
+          -- Fallback to current working directory instead of file directory
+          -- This prevents treating every Java file as a separate project
+          return vim.fn.getcwd()
         end,
 
         -- How to find the project name for a given root dir.
