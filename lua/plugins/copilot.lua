@@ -15,7 +15,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
-      sticky = "@copilot",
+      sticky = "#buffer",
       model = "claude-sonnet-4.5",
       highlight_headers = false,
       headers = {

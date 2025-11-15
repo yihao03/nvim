@@ -3,28 +3,13 @@ return {
     "mfussenegger/nvim-jdtls",
     opts = function()
       local cmd = { vim.fn.exepath("jdtls") }
-      -- if LazyVim.has("mason.nvim") then
-      --   local mason_registry = require("mason-registry")
-      --   local lombok_jar = mason_registry.get_package("jdtls"):get_install_path() .. "/lombok.jar"
-      --   table.insert(cmd, string.format("--jvm-arg=-javaagent:%s", lombok_jar))
-      -- end
+      if LazyVim.has("mason.nvim") then
+        local lombok_jar = vim.fn.expand("$MASON/share/jdtls/lombok.jar")
+        table.insert(cmd, string.format("--jvm-arg=-javaagent:%s", lombok_jar))
+      end
       return {
-        -- How to find the root dir for a given filename. The default comes from
-        -- lspconfig which provides a function specifically for java projects.
-        -- root_dir = LazyVim.lsp.get_raw_config("jdtls").default_config.root_dir,
-
-        root_dir = function(fname)
-          -- This function defines how the root directory is determined.
-          -- It should return the path to the project root.
-
-          -- Example 1: Look for a specific file (e.g., pom.xml for Maven)
-          local root = vim.fs.find({ "pom.xml", "build.gradle" }, { upward = true, path = fname })[1]
-          if root then
-            return vim.fs.dirname(root)
-          end
-
-          -- Example 2: If no specific file is found, use the current file's directory as a fallback
-          return vim.fs.dirname(fname)
+        root_dir = function(path)
+          return vim.fs.root(path, vim.lsp.config.jdtls.root_markers)
         end,
 
         -- How to find the project name for a given root dir.
@@ -93,6 +78,7 @@ return {
               enabled = true,
               settings = {
                 url = vim.fn.stdpath("config") .. "/styles/java.xml",
+                profile = "SE-EDU",
               },
             },
             project = {
