@@ -69,7 +69,7 @@ return {
       },
 
       cmdline = {
-        enabled = false,
+        enabled = true, -- Enable completion in command mode (:, /, ?)
       },
 
       keymap = {
