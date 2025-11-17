@@ -22,30 +22,34 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Remove LazyVim's default wrap behavior for markdown
-vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+pcall(vim.api.nvim_del_augroup_by_name, "lazyvim_wrap_spell")
 
 -- Markdown automatic line breaks
 local md_grp = vim.api.nvim_create_augroup("MarkdownLineBreaks", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
+
+-- Use BufWinEnter to ensure settings apply after other plugins
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter", "BufEnter" }, {
   group = md_grp,
-  pattern = "markdown",
+  pattern = { "markdown", "*.md" },
   callback = function(ev)
+    if vim.bo[ev.buf].filetype ~= "markdown" then
+      return
+    end
+
     local bo = vim.bo[ev.buf]
     local wo = vim.wo[0]
 
     -- Automatically insert line breaks at 80 characters
     bo.textwidth = 80
 
-    -- Format options for auto-wrapping
-    -- 't' = auto-wrap text using textwidth
-    -- 'c' = auto-wrap comments
-    -- 'r' = auto insert comment leader after <Enter> in Insert mode
-    -- 'o' = auto insert comment leader after 'o' or 'O' in Normal mode
-    -- 'q' = allow formatting with 'gq'
-    -- 'n' = recognize numbered lists
-    -- 'l' = long lines are not broken in insert mode
-    vim.opt_local.formatoptions:append("t")
-    vim.opt_local.formatoptions:append("c")
+    -- Clear formatoptions and set them explicitly
+    bo.formatoptions = ""
+    vim.schedule(function()
+      -- Use schedule to ensure this runs after other plugins
+      bo.formatoptions = "tcrqn"
+      -- Double-check textwidth is still set
+      bo.textwidth = 80
+    end)
 
     -- Visual wrapping at word boundaries
     wo.wrap = true
