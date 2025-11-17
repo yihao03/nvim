@@ -20,3 +20,24 @@ vim.api.nvim_create_autocmd("FileType", {
     bo.expandtab = true
   end,
 })
+
+-- Markdown automatic line breaks
+local md_grp = vim.api.nvim_create_augroup("MarkdownLineBreaks", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = md_grp,
+  pattern = "markdown",
+  callback = function(ev)
+    local bo = vim.bo[ev.buf]
+    local wo = vim.wo[0]
+
+    -- Automatically insert line breaks at 80 characters
+    bo.textwidth = 80
+
+    -- Format options: 't' = auto-wrap text, 'c' = auto-wrap comments, 'q' = allow formatting with 'gq'
+    bo.formatoptions = "tcqjnl"
+
+    -- Visual wrapping at word boundaries
+    wo.wrap = true
+    wo.linebreak = true
+  end,
+})
