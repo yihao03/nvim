@@ -1,15 +1,26 @@
 return {
   {
     "mfussenegger/nvim-jdtls",
+    ft = "java",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
     opts = function()
       local cmd = { vim.fn.exepath("jdtls") }
-      if LazyVim.has("mason.nvim") then
-        local lombok_jar = vim.fn.expand("$MASON/share/jdtls/lombok.jar")
-        table.insert(cmd, string.format("--jvm-arg=-javaagent:%s", lombok_jar))
+
+      -- Check if mason is available and add lombok
+      local mason_registry_ok, mason_registry = pcall(require, "mason-registry")
+      if mason_registry_ok and mason_registry.is_installed("jdtls") then
+        local mason_path = vim.fn.stdpath("data") .. "/mason"
+        local lombok_jar = mason_path .. "/share/jdtls/lombok.jar"
+        if vim.fn.filereadable(lombok_jar) == 1 then
+          table.insert(cmd, string.format("--jvm-arg=-javaagent:%s", lombok_jar))
+        end
       end
+
       return {
         root_dir = function(path)
-          return vim.fs.root(path, vim.lsp.config.jdtls.root_markers)
+          return vim.fs.root(path, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" })
         end,
 
         -- How to find the project name for a given root dir.
