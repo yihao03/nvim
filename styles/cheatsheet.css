@@ -1,0 +1,134 @@
+/* ==========================================================================
+   1. RESTORE DEFAULT SCREEN LOOK
+   We import the standard GitHub theme because the plugin stopped loading it.
+   ========================================================================== */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css');
+
+/* Center the document on screen (Standard behavior) */
+@media screen {
+    .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 45px;
+    }
+}
+
+/* ==========================================================================
+   2. COMPACT PRINT STYLES (Overrides above styles only during print)
+   ========================================================================== */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 2mm;
+    }
+
+    /* Reset the container to use full width */
+    /* 2. Global Resets & Typography */
+    html, body {
+      font-size: 6pt; /* Small but readable */
+      line-height: 1.2;
+      color: #1a1a1a;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* 3. The Column Layout */
+    body {
+      /* Create 4 columns */
+      column-count: 4;
+      column-gap: 3mm;
+      column-rule: 0.5pt solid #ddd; /* Light line between columns */
+      
+      /* Ensure content flows correctly */
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --- COMPACT TYPOGRAPHY (Using !important to override GitHub theme) --- */
+    
+    /* Body Text */
+    body, .markdown-body {
+        font-size: 6pt !important;
+        line-height: 1.2 !important;
+        color: #000 !important;
+    }
+
+    header, .markdown-preview-title, title {
+        display: none !important;
+    }
+
+
+    /* Headers */
+    .markdown-body h1, .markdown-body h2, .markdown-body h3, 
+    .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+        margin-top: 0.3em !important;
+        margin-bottom: 0 !important;
+        break-after: avoid;
+        font-weight: bold !important;
+        line-height: 1 !important;
+        border-bottom: none !important; /* Reset borders to add custom ones */
+    }
+    
+    .markdown-body h1 { font-size: 9pt !important; border-bottom: 1px solid #000 !important; text-transform: uppercase; }
+    .markdown-body h2 { font-size: 8.5pt !important; background-color: #eee !important; border-bottom: 1px solid #ccc !important;}
+    .markdown-body h3 { font-size: 8pt !important; text-decoration: underline !important; }
+
+    /* Paragraphs & Lists - ZERO SPACINGS */
+    .markdown-body p, .markdown-body pre, .markdown-body blockquote, 
+    .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table {
+        margin-top: 0 !important;
+        margin-bottom: 2px !important;
+    }
+
+    /* List Indentation */
+    .markdown-body ul, .markdown-body ol { padding-left: 1.2em !important; }
+    .markdown-body li { margin-bottom: 0 !important; }
+    .markdown-body li + li { margin-top: 0 !important; } /* Override GitHub's li spacing */
+
+    /* Code Blocks */
+    .markdown-body pre {
+        padding: 1px !important;
+        background-color: #f5f5f5 !important;
+        border: 1px solid #ccc !important;
+        border-radius: 2px !important;
+        white-space: pre-wrap !important;
+        break-inside: avoid;
+    }
+    .markdown-body code {
+        font-family: "Menlo", "Consolas", monospace !important;
+        font-size: 7pt !important;
+        white-space: pre-wrap !important; /* Wraps long code lines */
+    }
+
+    /* Tables - Compact Spacing */
+    .markdown-body table {
+        border-collapse: collapse !important;
+    }
+    .markdown-body th, .markdown-body td {
+        padding: 3px 3px !important;
+        border: 1px solid #ccc !important;
+        font-size: 6pt !important;
+        line-height: 1.1 !important;
+    }
+    .markdown-body th {
+        font-weight: bold !important;
+        background-color: #f0f0f0 !important;
+    }
+
+    /* Images */
+    .markdown-body img {
+        max-height: 100px !important;
+        display: block;
+        margin: 1px auto;
+        background-color: transparent !important;
+    }
+
+    /* Hide Navigation/Plugin UI */
+    .markdown-preview-pusher, .toc-container { display: none !important; }
+    
+    /* Force first element to top */
+    .markdown-body > *:first-child { margin-top: 0 !important; }
+}
