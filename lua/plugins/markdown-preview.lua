@@ -12,10 +12,10 @@ return {
 
           if vim.g.mkdp_markdown_css:match("cheatsheet") then
             vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/standard.css"
-            print("Switched to standard.css")
+            print("Switched to standard styling")
           else
             vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/cheatsheet.css"
-            print("Switched to cheatsheet.css")
+            print("Switched to cheatsheet styling")
           end
           -- Restart preview to apply new CSS
           vim.cmd("MarkdownPreviewStop")

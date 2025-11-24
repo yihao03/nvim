@@ -2,7 +2,7 @@
    1. RESTORE DEFAULT SCREEN LOOK
    We import the standard GitHub theme because the plugin stopped loading it.
    ========================================================================== */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css');
+@import url('https://raw.githubusercontent.com/iamcco/markdown.css/refs/heads/master/dest/github/markdown.css');
 
 /* Center the document on screen (Standard behavior) */
 @media screen {
