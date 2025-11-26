@@ -1,3 +1,5 @@
+local preview_delay = 50
+
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -16,6 +18,23 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     keys = {
+      { "<leader>cp", false },
+      {
+        "<leader>mp",
+        function()
+          if vim.bo.filetype ~= "markdown" then
+            print("Option only available in markdown files")
+            return
+          end
+
+          vim.cmd("MarkdownPreviewStop")
+          vim.defer_fn(function()
+            vim.g.mkdp_markdown_css = ""
+            vim.cmd("MarkdownPreview")
+          end, preview_delay)
+        end,
+        desc = "Preview Markdown",
+      },
       {
         "<leader>mc",
         function()
@@ -24,18 +43,13 @@ return {
             return
           end
 
-          if vim.g.mkdp_markdown_css:match("cheatsheet") then
-            vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/standard.css"
-            print("Switched to standard styling")
-          else
-            vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/cheatsheet.css"
-            print("Switched to cheatsheet styling")
-          end
-          -- Restart preview to apply new CSS
           vim.cmd("MarkdownPreviewStop")
-          vim.cmd("MarkdownPreview")
+          vim.defer_fn(function()
+            vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/cheatsheet.css"
+            vim.cmd("MarkdownPreview")
+          end, preview_delay)
         end,
-        desc = "Toggle Markdown CSS Style",
+        desc = "Preview Markdown as Cheat Sheet",
       },
     },
   },
