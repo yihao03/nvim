@@ -21,7 +21,7 @@
 @media print {
     @page {
         size: A4 landscape;
-        margin: 2mm;
+        margin: 5mm;
     }
 
     /* Reset the container to use full width */
@@ -48,7 +48,6 @@
     }
 
     /* --- COMPACT TYPOGRAPHY (Using !important to override GitHub theme) --- */
-    
     /* Body Text */
     body, .markdown-body {
         font-size: 6pt !important;
@@ -120,7 +119,7 @@
 
     /* Images */
     .markdown-body img {
-        max-height: 100px !important;
+        max-height: 200px !important;
         display: block;
         margin: 1px auto;
         background-color: transparent !important;
