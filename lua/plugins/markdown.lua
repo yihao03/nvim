@@ -19,6 +19,7 @@ return {
     "iamcco/markdown-preview.nvim",
     keys = {
       { "<leader>cp", false },
+      { "<leader>m", desc = "+markdown", mode = { "n", "v" } },
       {
         "<leader>mp",
         function()
@@ -29,7 +30,7 @@ return {
 
           vim.cmd("MarkdownPreviewStop")
           vim.defer_fn(function()
-            vim.g.mkdp_markdown_css = ""
+            vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/standard.css"
             vim.cmd("MarkdownPreview")
           end, preview_delay)
         end,
