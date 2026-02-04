@@ -16,7 +16,7 @@ return {
     build = "make tiktoken",
     opts = {
       sticky = "#buffer",
-      model = "gemini-3-pro-preview",
+      model = "claude-sonnet-4.5",
       highlight_headers = false,
       headers = {
         user = "  ",
