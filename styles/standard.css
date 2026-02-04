@@ -11,3 +11,32 @@
         padding: 45px;
     }
 }
+
+/* Print styling */
+@media print {
+    .markdown-body {
+        background-color: #fff;
+        color: #000;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    /* Ensure links are readable but not distracting */
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Avoid breaking code blocks across pages */
+    pre, code {
+        page-break-inside: avoid;
+        white-space: pre-wrap;
+    }
+
+    /* Avoid breaking headers */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+}

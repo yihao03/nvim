@@ -21,7 +21,7 @@
 @media print {
     @page {
         size: A4 landscape;
-        margin: 5mm;
+        margin: 0;
     }
 
     /* Reset the container to use full width */
@@ -32,7 +32,7 @@
       color: #1a1a1a;
       background-color: #fff;
       margin: 0;
-      padding: 1mm;
+      padding: 0;
     }
     
     /* 3. The Column Layout */
@@ -119,7 +119,7 @@
 
     /* Images */
     .markdown-body img {
-        max-height: 200px !important;
+        max-height: 100px !important;
         display: block;
         margin: 1px auto;
         background-color: transparent !important;
