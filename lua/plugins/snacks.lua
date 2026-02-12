@@ -20,6 +20,20 @@ return {
         { pane = 1, section = "recent_files" },
         function()
           local in_git = Snacks.git.get_root() ~= nil
+
+          if not in_git then
+            return {
+              {
+                pane = 2,
+                section = "terminal",
+                cmd = "cmatrix -s -C cyan",
+                height = 17,
+                padding = 1,
+                ttl = 0,
+              },
+            }
+          end
+
           local cmds = {
             {
               title = "Open Issues",
