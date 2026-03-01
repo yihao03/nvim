@@ -1,13 +1,4 @@
--- Cursor offset from the start of the `left` string to where the condition should be typed.
--- After mini.surround places the cursor at the end of `left`, we schedule a jump back.
-local function schedule_cursor_to_condition(cursor_col_offset)
-  vim.schedule(function()
-    local pos = vim.api.nvim_win_get_cursor(0)
-    -- Move cursor to the first line of the surround (one line above current) at the condition offset
-    vim.api.nvim_win_set_cursor(0, { pos[1], cursor_col_offset })
-    vim.cmd("startinsert")
-  end)
-end
+local schedule_cursor_to_condition = require("plugins.surround.utils")
 
 return {
   input = function()
