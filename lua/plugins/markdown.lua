@@ -12,6 +12,9 @@ return {
       pipe_table = {
         enabled = true,
       },
+      latex = {
+        enabled = false,
+      },
     },
     ft = { "markdown", "copilot-chat" },
   },
