@@ -1,14 +1,5 @@
 return {
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    event = "BufReadPost",
-    opts = {
-      copilot_node_command = "/home/yihao/.nvm/versions/node/v24.4.1/bin/node",
-    },
-  },
-  {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
