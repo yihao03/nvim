@@ -70,6 +70,11 @@ return {
 
       keymap = {
         preset = "super-tab",
+        ["<Tab>"] = {
+          require("blink.cmp.keymap.presets").get("super-tab")["<Tab>"][1],
+          "snippet_forward",
+          "fallback",
+        },
         ["<C-y>"] = {
           function(cmp)
             if LazyVim.cmp.actions.ai_accept then
