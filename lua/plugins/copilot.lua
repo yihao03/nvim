@@ -7,7 +7,7 @@ return {
     build = "make tiktoken",
     opts = {
       sticky = "#buffer",
-      model = "claude-sonnet-4.5",
+      model = "claude-sonnet-4.6",
       highlight_headers = false,
       headers = {
         user = "  ",
@@ -20,6 +20,5 @@ return {
       -- insert_at_end = true,
       stop_function_on_failure = true,
     },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 }
