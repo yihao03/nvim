@@ -1,4 +1,4 @@
-local MATRIX = require("plugins.snacks.matrix")
+local NYANCAT = require("plugins.snacks.nyancat")
 local utils = require("plugins.snacks.utils")
 local fetch = require("plugins.snacks.remote")
 
@@ -6,13 +6,13 @@ local fetch = require("plugins.snacks.remote")
 local function git_panes()
   local git_root = Snacks.git.get_root()
   if not git_root then
-    return { MATRIX }
+    return { NYANCAT }
   end
 
   local is_github = vim.fn.system("git remote get-url origin 2>/dev/null"):find("github.com")
   local is_gitlab = vim.fn.system("git remote get-url origin 2>/dev/null"):find("gitlab.com")
   if not is_github and not is_gitlab then
-    return { MATRIX }
+    return { NYANCAT }
   end
 
   local cache_dir = vim.fn.stdpath("cache") .. "/dashboard_gh"
@@ -26,7 +26,7 @@ local function git_panes()
 
   -- Default true on first visit so we optimistically show sections.
   if not utils.read_flag(issues_path, true) and not utils.read_flag(prs_path, true) then
-    return { MATRIX }
+    return { NYANCAT }
   end
 
   local cmds = {
