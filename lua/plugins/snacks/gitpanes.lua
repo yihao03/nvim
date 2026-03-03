@@ -38,7 +38,7 @@ local function git_panes()
         vim.fn.jobstart(fetch_object.issue.web, { detach = true })
       end,
       icon = " ",
-      height = 7,
+      height = 9,
     },
     {
       icon = " ",
@@ -48,7 +48,7 @@ local function git_panes()
       action = function()
         vim.fn.jobstart(fetch_object.pr.web, { detach = true })
       end,
-      height = 7,
+      height = 9,
     },
   }
 
