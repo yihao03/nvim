@@ -83,6 +83,7 @@ return {
           end,
           "fallback",
         },
+        ["<S-Tab>"] = { "select_next", "fallback" },
       },
     },
   },
