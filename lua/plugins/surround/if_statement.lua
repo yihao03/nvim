@@ -1,4 +1,4 @@
-local schedule_cursor_to_condition = require("plugins.surround.utils")
+local schedule_cursor_to_condition = require("plugins.surround.utils").schedule_cursor_to_condition
 
 return {
   input = function()
