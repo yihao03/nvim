@@ -8,7 +8,7 @@ return {
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
     keys = {
-      { "<leader>h", desc = "OpenCode" },
+      { "<leader>h", mode = { "n", "x" }, desc = "OpenCode" },
       {
         "<leader>ha",
         function()
