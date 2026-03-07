@@ -2,13 +2,20 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    config = function()
-      require("rose-pine").setup({
-        styles = {
-          transparency = true,
-        },
-      })
-    end,
+    config = {
+      styles = {
+        transparency = true,
+      },
+
+      -- for use with FiraCode iScript
+      highlight_groups = {
+        ["@variable"] = { italic = false },
+        ["@property"] = { italic = false },
+        ["@module.go"] = { italic = true },
+        Keyword = { italic = true },
+        String = { italic = true },
+      },
+    },
   },
   {
     "LazyVim/LazyVim",
