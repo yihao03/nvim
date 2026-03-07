@@ -1,7 +1,17 @@
 # 💤 LazyVim
 
-- a lightly customized LazyVim configuration just for fun
-- standard LazyVim prerequisite applies
+probably spent way too much time on this.
 
-best used with windows terminal background opacity set to below 50%
-with acrylic enabled
+currently used with wezTerm. See wezterm config
+[here](https://github.com/yihao03/wezterm)
+
+## Dependencies
+
+- nyancat (see my fork [here](https://github.com/yihao03/nyancat))
+- cmatrix
+- gh cli
+- glab cli
+- tectonic (for vimtex)
+- latex2text (for `render-markdown.nvim`)
+- win32yank.exe (for clipboard support in WSL)
+  - xsel/xclip is also supported
