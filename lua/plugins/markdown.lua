@@ -15,8 +15,16 @@ return {
       latex = {
         enabled = false,
       },
+      overrides = {
+        preview = {
+          latex = { enabled = true },
+        },
+      },
     },
     ft = { "markdown", "copilot-chat" },
+    keys = {
+      { "<leader>mi", "<cmd>RenderMarkdown preview<cr>", desc = "Preview Markdown" },
+    },
   },
   {
     "iamcco/markdown-preview.nvim",
