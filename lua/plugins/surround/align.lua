@@ -1,6 +1,6 @@
 return {
-  input = { "\\begin{align%*?}.-\\end{align%*?}", "^\\begin{align%*?}%s*().-()%s*\\end{align%*?}$" },
+  input = { "\\begin{aligned?}.-\\end{align%*?}", "^\\begin{aligned?}%s*().-()%s*\\end{align%*?}$" },
   output = function()
-    return { left = "\\begin{align*}\n", right = "\n\\end{align*}" }
+    return { left = "\\begin{aligned}\n", right = "\n\\end{aligned}" }
   end,
 }
