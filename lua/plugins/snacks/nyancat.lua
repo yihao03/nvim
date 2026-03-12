@@ -4,7 +4,7 @@ local NYANCAT = {
   cmd = "nyancat -n",
   height = 22,
   padding = 1,
-  ttl = 0,
+  ttl = 5 * 60,
 }
 
 return NYANCAT
