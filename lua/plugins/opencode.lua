@@ -44,7 +44,8 @@ return {
       {
         "<leader>hb",
         function()
-          require("opencode").ask("@file ", { submit = true })
+          vim.api.nvim_command("write") -- Save the buffer before asking about it
+          require("opencode").ask("@buffer ", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode ask about buffer",
@@ -69,7 +70,7 @@ return {
       {
         "<leader>hpf",
         function()
-          require("opencode").prompt("fix", { submit = true })
+          require("opencode").prompt("@diagnostics fix", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode fix",
