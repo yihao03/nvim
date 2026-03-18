@@ -1,0 +1,25 @@
+{
+  "frac": {
+    "prefix": "frac",
+    "body": [
+      "\\frac{${1:numerator}}{${2:denominator}}"
+    ],
+    "description": "LaTeX fraction"
+  },
+  "sum": {
+    "prefix": "sum",
+    "body": [
+      "\\sum_{${1:i=1}}^{${2:n}} ${3:expression}"
+    ],
+    "description": "LaTeX summation"
+  },
+  "align": {
+    "prefix": "align",
+    "body": [
+      "\\begin{${1:alignment}}",
+      "${2:equations}",
+      "\\end{${1:alignment}}"
+    ],
+    "description": "LaTeX aligned equations"
+  }
+}

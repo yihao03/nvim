@@ -1,0 +1,13 @@
+{
+  "latex": {
+    "prefix": "latex",
+    "body": [
+      "\\$\\$",
+      "\\begin{aligned}",
+      "${1:latex code}",
+      "\\end{aligned}",
+      "\\$\\$"
+    ],
+    "description": "Insert LaTeX code in markdown"
+  }
+}
