@@ -7,7 +7,7 @@ return {
     build = "make tiktoken",
     opts = {
       sticky = "#buffer",
-      model = "claude-sonnet-4.6",
+      model = "gpt-5.3-codex",
       highlight_headers = false,
       headers = {
         user = "  ",
