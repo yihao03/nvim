@@ -21,7 +21,7 @@
 @media print {
     @page {
         size: A4 landscape;
-        margin: 0;
+        margin: 4mm;
     }
 
     /* Reset the container to use full width */
