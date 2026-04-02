@@ -23,22 +23,25 @@ return {
     },
     ft = { "markdown", "copilot-chat" },
     keys = {
-      { "<leader>mi", "<cmd>RenderMarkdown preview<cr>", desc = "Preview Markdown" },
+      { "<leader>mi", "<cmd>RenderMarkdown preview<cr>", desc = "Preview Markdown in editor", ft = "markdown" },
     },
   },
   {
     "iamcco/markdown-preview.nvim",
+    lazy = true,
+    ft = "markdown",
+    init = function()
+      vim.g.mkdp_page_title = "${name}"
+      vim.g.mkdp_preview_options = {
+        disable_filename = 1,
+      }
+    end,
     keys = {
       { "<leader>cp", false },
-      { "<leader>m", desc = "+markdown", mode = { "n", "v" } },
+      { "<leader>m", desc = "+markdown", mode = { "n", "v" }, ft = "markdown" },
       {
         "<leader>mp",
         function()
-          if vim.bo.filetype ~= "markdown" then
-            print("Option only available in markdown files")
-            return
-          end
-
           vim.cmd("MarkdownPreviewStop")
           vim.defer_fn(function()
             vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/standard.css"
@@ -46,15 +49,11 @@ return {
           end, preview_delay)
         end,
         desc = "Preview Markdown",
+        ft = "markdown",
       },
       {
         "<leader>mc",
         function()
-          if vim.bo.filetype ~= "markdown" then
-            print("Option only available in markdown files")
-            return
-          end
-
           vim.cmd("MarkdownPreviewStop")
           vim.defer_fn(function()
             vim.g.mkdp_markdown_css = vim.fn.stdpath("config") .. "/styles/cheatsheet.css"
@@ -62,6 +61,7 @@ return {
           end, preview_delay)
         end,
         desc = "Preview Markdown as Cheat Sheet",
+        ft = "markdown",
       },
     },
   },

@@ -28,35 +28,19 @@ return {
       {
         "<leader>hi",
         function()
-          require("opencode").ask("", { submit = true })
+          require("opencode").ask("@this ", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode ask",
       },
       {
-        "<leader>hI",
-        function()
-          require("opencode").ask("@this: ", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode ask with context",
-      },
-      {
         "<leader>hb",
         function()
-          vim.api.nvim_command("write") -- Save the buffer before asking about it
-          require("opencode").ask("@buffer ", { submit = true })
+          vim.api.nvim_command("noa write") -- Save the buffer before asking about it
+          require("opencode").ask("@this ", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode ask about buffer",
-      },
-      {
-        "<leader>hp",
-        function()
-          require("opencode").prompt("@this", { submit = true })
-        end,
-        mode = { "n", "x" },
-        desc = "OpenCode prompt",
       },
       -- Built-in prompts
       {
@@ -86,7 +70,7 @@ return {
       {
         "<leader>hpr",
         function()
-          require("opencode").prompt("review", { submit = true })
+          require("opencode").prompt("@this review", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode review",
@@ -102,7 +86,7 @@ return {
       {
         "<leader>hpo",
         function()
-          require("opencode").prompt("optimize", { submit = true })
+          require("opencode").prompt("@this optimize", { submit = true })
         end,
         mode = { "n", "x" },
         desc = "OpenCode optimize",
