@@ -29,6 +29,17 @@ return {
         actions = {
           ["o"] = open_cmd,
         },
+        sources = {
+          notifications = {
+            win = {
+              preview = {
+                wo = {
+                  wrap = true,
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
