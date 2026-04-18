@@ -1,3 +1,4 @@
+local vault = "/mnt/c/Users/yihao/OneDrive - National University of Singapore/school/y2s2/"
 local preview_delay = 50
 
 return {
@@ -62,6 +63,23 @@ return {
         end,
         desc = "Preview Markdown as Cheat Sheet",
         ft = "markdown",
+      },
+    },
+  },
+  {
+    "obsidian-nvim/obsidian.nvim",
+    lazy = true,
+    ft = { "markdown" },
+    ---@module 'obsidian'
+    ---@type obsidian.config
+    opts = {
+      legacy_commands = false, -- this will be removed in the next major release
+      ui = { enable = false },
+      workspaces = {
+        {
+          name = "school",
+          path = vault,
+        },
       },
     },
   },
