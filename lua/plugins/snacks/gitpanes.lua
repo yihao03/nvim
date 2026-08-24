@@ -59,7 +59,6 @@ local function git_panes()
       padding = 1,
       ttl = 5 * 60,
       indent = 3,
-      cwd = git_root,
     }, cmd)
   end, cmds)
 end

@@ -2,12 +2,10 @@ return {
   input = { "<(%w-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
   output = function()
     local tag_input = vim.fn.input("Tag (with props): ")
-    if tag_input == "" then
-      return nil
+    local tag_name = ""
+    if tag_input ~= "" then
+      tag_name = tag_input:match("^(%S+)")
     end
-
-    -- Extract tag name (first word before space or >)
-    local tag_name = tag_input:match("^(%S+)")
 
     -- Get current line's indentation
     local line_num = vim.fn.line(".")

@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -7,7 +11,7 @@ return {
     build = "make tiktoken",
     opts = {
       sticky = "#buffer",
-      model = "gpt-5.3-codex",
+      model = "auto",
       highlight_headers = false,
       headers = {
         user = "  ",

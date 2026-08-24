@@ -14,12 +14,12 @@ local gh = {
 local glab = {
   issue = {
     list = "glab issue list -P 5",
-    check = "glab issue list -P 1 --json number 2>/dev/null",
+    check = "glab issue list -P 1 -O json 2>/dev/null",
     web = "glab issue list --web",
   },
   pr = {
-    list = "glab mr list -P 5",
-    check = "glab mr list -P 1 --json number 2>/dev/null",
+    list = "glab mr list -P 5 -r yihaooo",
+    check = "glab mr list -P 1 -O json 2>/dev/null",
     web = "glab mr list --web",
   },
 }

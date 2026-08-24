@@ -10,3 +10,6 @@
 -- vim.uv.os_setenv("JAVA_HOME", "/home/yihao/.sdkman/candidates/java/22.0.2-oracle/")
 
 vim.g.mkdp_markdown_css = os.getenv("HOME") .. "/.config/nvim/styles/cheatsheet.css"
+vim.lsp.config("gopls", {
+  cmd = { vim.fn.expand("~/go/bin/gopls") },
+})
