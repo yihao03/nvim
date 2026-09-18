@@ -23,11 +23,6 @@ return {
         return out
       end
 
-      local function pick_input_file()
-        local p = vim.fn.input("Stdin file: ", vim.fn.getcwd() .. "/test/", "file")
-        return p ~= "" and vim.fn.fnamemodify(p, ":p") or nil
-      end
-
       for _, lang in ipairs({ "c", "cpp" }) do
         dap.configurations[lang] = {
           {
@@ -36,12 +31,15 @@ return {
             name = "Build and launch current file",
             program = build_current_file,
             cwd = "${workspaceFolder}",
-            stdio = function()
-              local f = pick_input_file()
-              return f and { f, nil, nil } or nil -- stdin, stdout, stderr
-            end,
           },
         }
+      end
+
+      -- keep dap-ui open after session end so program output stays visible
+      local ok, dapui = pcall(require, "dapui")
+      if ok then
+        dap.listeners.before.event_terminated.dapui_config = nil
+        dap.listeners.before.event_exited.dapui_config = nil
       end
     end,
   },
