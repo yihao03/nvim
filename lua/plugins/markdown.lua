@@ -86,4 +86,16 @@ return {
       },
     },
   },
+  {
+    "yousefhadder/markdown-plus.nvim",
+    ft = "markdown",
+    opts = {
+      links = {
+        smart_paste = {
+          enabled = true,
+          timeout = 5, -- 1..30
+        },
+      },
+    },
+  },
 }

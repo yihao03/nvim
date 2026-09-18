@@ -5,6 +5,7 @@ return {
     ft = { "tex", "plaintex", "bib" },
     init = function()
       vim.g.vimtex_compiler_method = "tectonic"
+      vim.g.vimtex_view_method = "sioyek"
     end,
   },
 }
