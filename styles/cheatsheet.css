@@ -21,7 +21,6 @@
 @media print {
     @page {
         size: A4 landscape;
-        /* Leave margins to the print dialog and printer defaults. */
     }
 
     /* Reset the container to use full width */
