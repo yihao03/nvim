@@ -24,6 +24,32 @@
         margin: 4mm;
     }
 
+    /* Keep Mermaid diagrams and their node boxes readable when printed. */
+    .markdown-body .mermaid {
+        background-color: #f7f7f7 !important;
+        print-color-adjust: exact;
+    }
+
+    .markdown-body .mermaid svg .node rect,
+    .markdown-body .mermaid svg .node polygon,
+    .markdown-body .mermaid svg .node circle,
+    .markdown-body .mermaid svg .node ellipse {
+        fill: #f2f2f2 !important;
+    }
+
+    .markdown-body .mermaid svg text,
+    .markdown-body .mermaid svg tspan {
+        fill: #111 !important;
+        stroke: none !important;
+    }
+
+    .markdown-body .mermaid svg foreignObject,
+    .markdown-body .mermaid svg foreignObject * {
+        color: #111 !important;
+        -webkit-text-fill-color: #111 !important;
+        text-shadow: none !important;
+    }
+
     /* Reset the container to use full width */
     /* 2. Global Resets & Typography */
     html, body {
@@ -38,7 +64,7 @@
     /* 3. The Column Layout */
     body {
       /* Create 4 columns */
-      column-count: 4;
+      column-count: 3;
       column-gap: 3mm;
       column-rule: 0.5pt solid #ddd; /* Light line between columns */
       
@@ -99,6 +125,7 @@
     .markdown-body code {
         font-family: "Menlo", "Consolas", monospace !important;
         font-size: 7pt !important;
+        color: #333 !important;
         white-space: pre-wrap !important; /* Wraps long code lines */
     }
 
