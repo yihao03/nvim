@@ -1,6 +1,27 @@
 /* Standard GitHub-style markdown with normal print layout */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css');
 
+Center tables and visual content on screen and in print.
+.markdown-body table {
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+}
+
+/* Preserve Mermaid's generated width limit while centering its SVG. */
+.markdown-body .mermaid > svg {
+    display: block !important;
+    margin-inline: auto !important;
+}
+
+.markdown-body img,
+.markdown-body canvas {
+    display: block !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+}
+
 /* Screen styling */
 @media screen {
     .markdown-body {
@@ -14,6 +35,32 @@
 
 /* Print styling */
 @media print {
+    /* Use white Mermaid node boxes and black labels when printed. */
+    .markdown-body .mermaid svg .node rect,
+    .markdown-body .mermaid svg .node polygon,
+    .markdown-body .mermaid svg .node circle,
+    .markdown-body .mermaid svg .node ellipse,
+    .markdown-body .mermaid svg .node path {
+        fill: #fff !important;
+    }
+
+    .markdown-body .mermaid svg text,
+    .markdown-body .mermaid svg tspan {
+        fill: #000 !important;
+        stroke: none !important;
+    }
+
+    .markdown-body .mermaid svg foreignObject,
+    .markdown-body .mermaid svg foreignObject * {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    .markdown-body .mermaid {
+        break-inside: avoid;
+    }
+
     .markdown-body {
         background-color: #fff;
         color: #000;
@@ -38,5 +85,12 @@
     /* Avoid breaking headers */
     h1, h2, h3, h4, h5, h6 {
         page-break-after: avoid;
+    }
+
+    .markdown-body code {
+        font-family: "Menlo", "Consolas", monospace !important;
+        font-size: 7pt !important;
+        color: #222 !important;
+        white-space: pre-wrap !important; /* Wraps long code lines */
     }
 }

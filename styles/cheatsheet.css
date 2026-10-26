@@ -4,6 +4,27 @@
    ========================================================================== */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css');
 
+/* Center tables and visual content on screen and in print. */
+.markdown-body table {
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+}
+
+/* Preserve Mermaid's generated width limit while centering its SVG. */
+.markdown-body .mermaid > svg {
+    display: block !important;
+    margin-inline: auto !important;
+}
+
+.markdown-body img,
+.markdown-body canvas {
+    display: block !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+}
+
 /* Center the document on screen (Standard behavior) */
 @media screen {
     .markdown-body {
@@ -19,34 +40,52 @@
    2. COMPACT PRINT STYLES (Overrides above styles only during print)
    ========================================================================== */
 @media print {
+    /* Use white Mermaid node boxes and black labels when printed. */
+    .markdown-body .mermaid svg .node rect,
+    .markdown-body .mermaid svg .node polygon,
+    .markdown-body .mermaid svg .node circle,
+    .markdown-body .mermaid svg .node ellipse,
+    .markdown-body .mermaid svg .node path {
+        fill: #fff !important;
+    }
+
+    .markdown-body .mermaid svg text,
+    .markdown-body .mermaid svg tspan {
+        fill: #000 !important;
+        stroke: none !important;
+    }
+
+    .markdown-body .mermaid svg foreignObject,
+    .markdown-body .mermaid svg foreignObject * {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+        text-shadow: none !important;
+    }
+
     @page {
         size: A4 landscape;
     }
 
     /* Keep Mermaid diagrams and their node boxes readable when printed. */
     .markdown-body .mermaid {
+        break-inside: avoid;
         background-color: #f7f7f7 !important;
         print-color-adjust: exact;
     }
 
-    .markdown-body .mermaid svg .node rect,
-    .markdown-body .mermaid svg .node polygon,
-    .markdown-body .mermaid svg .node circle,
-    .markdown-body .mermaid svg .node ellipse {
-        fill: #f2f2f2 !important;
+    /* Limit diagram height; labels scale with the SVG. */
+    .markdown-body .mermaid svg {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 40mm !important;
+        margin: 1mm auto;
     }
 
     .markdown-body .mermaid svg text,
-    .markdown-body .mermaid svg tspan {
-        fill: #111 !important;
-        stroke: none !important;
-    }
-
-    .markdown-body .mermaid svg foreignObject,
+    .markdown-body .mermaid svg tspan,
     .markdown-body .mermaid svg foreignObject * {
-        color: #111 !important;
-        -webkit-text-fill-color: #111 !important;
-        text-shadow: none !important;
+        font-size: 6pt !important;
+        line-height: 1.1 !important;
     }
 
     /* Reset the container to use full width */
@@ -63,7 +102,7 @@
     /* 3. The Column Layout */
     body {
       /* Create 4 columns */
-      column-count: 3;
+      column-count: 4;
       column-gap: 3mm;
       column-rule: 0.5pt solid #ddd; /* Light line between columns */
       
@@ -124,7 +163,7 @@
     .markdown-body code {
         font-family: "Menlo", "Consolas", monospace !important;
         font-size: 7pt !important;
-        color: #333 !important;
+        color: #222 !important;
         white-space: pre-wrap !important; /* Wraps long code lines */
     }
 
