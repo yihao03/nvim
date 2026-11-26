@@ -73,20 +73,15 @@
         print-color-adjust: exact;
     }
 
-    /* Limit diagram height; labels scale with the SVG. */
+    /* Fit the column width without further shrinking tall diagrams. */
     .markdown-body .mermaid svg {
         width: 100% !important;
         height: auto !important;
-        max-height: 40mm !important;
+        max-height: none !important;
         margin: 1mm auto;
     }
 
-    .markdown-body .mermaid svg text,
-    .markdown-body .mermaid svg tspan,
-    .markdown-body .mermaid svg foreignObject * {
-        font-size: 6pt !important;
-        line-height: 1.1 !important;
-    }
+    /* Keep Mermaid's native label size: SVG scaling also scales its text. */
 
     /* Reset the container to use full width */
     /* 2. Global Resets & Typography */
